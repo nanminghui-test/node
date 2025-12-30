@@ -7,4 +7,4 @@ COPY ./ /src
 
 RUN cat /etc/resolv.conf
 
-RUN npm install https://registry.npmmirror.com/supports-color/-/supports-color-7.2.0
+#RUN npm install https://registry.npmmirror.com/supports-color/-/supports-color-7.2.0
