@@ -1,17 +1,10 @@
-FROM FROM alibaba-cloud-linux-3-registry.cn-hangzhou.cr.aliyuncs.com/alinux3/node:20.16
-WORKDIR /usr/src/app
-ARG NODE_ENV
-ENV NODE_ENV $NODE_ENV
+FROM registry.cn-hangzhou.aliyuncs.com/jnpub/node:18-buster
+WORKDIR /src
 
-COPY package*.json ./
+COPY ./ /src
 
-# 切换到 root 用户
-USER root
-RUN chown -R root:root /usr/src/app
-#RUN cnpm install
 
-COPY . /usr/src/app
 
-ENV PORT 6060
-EXPOSE $PORT
-CMD [ "npm", "start" ]
+RUN cat /etc/resolv.conf
+
+RUN npm install https://registry.npmmirror.com/supports-color/-/supports-color-7.2.0
